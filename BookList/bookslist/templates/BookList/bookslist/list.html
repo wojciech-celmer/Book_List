@@ -1,0 +1,49 @@
+{% extends "BookList/base.html" %}
+
+{% block title %}Book List{% endblock %}
+
+{% block content %}
+
+
+<h1>Book List</h1>
+
+<div class="submitbutton">
+    <a href="{% url 'create_book' %}" style="coror: #ffffff;" >Add new book</a>
+
+</div>
+
+<div class="submitbutton">
+    <a href="{% url 'book_search' %}" style="coror: #ffffff;" >Import Books</a>
+
+</div>
+
+
+<div class="container1">
+    <div class="row1">
+        <div class="col-md">
+            <form method="get">
+                <div class="filters">
+                    {{ my_filter.form }}
+                </div>
+                <div class="submitbutton">
+                    <button class="btn" type="submit" style="font-size: 13pt; color: #ffffff; ">Search</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+    <div class="container">
+        <div class="row">
+            {% for i in books %}
+                <div class="col-md">
+                    <div class="book_cover"> <img src="{{ i.cover_link}}" style="width:200px; height:300px; border: 5px #000000 solid; border-radius:20px; " > </div>
+                    <div class="book_title"> <h2><a href="/book/{{ i.id }}">{{ i.title }}</a></h2> </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "BookList/base.html" %}
+
+{% block title %}Book List{% endblock %}
+
+{% block content %}
+<h1>Book Search</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container1">
+    <div class="row">
+
+        {% for i in response.items %}
+            <div class="col-lg-4">
+                <div class="book_cover"><img src="{{ i.volumeInfo.imageLinks.thumbnail }}" style="width:200px; height:300px; border: 5px #000000 solid; border-radius:20px; " > </div>
+                <div class="book_title"> <h2><a href="#">{{ i.volumeInfo.title }}</a></h2> </div>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+</body>
+</html>
+{% endblock %}

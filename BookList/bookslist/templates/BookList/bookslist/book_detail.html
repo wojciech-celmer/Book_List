@@ -1,0 +1,20 @@
+{% extends "BookList/base.html" %}
+
+{% block title %}Book Detail{% endblock %}
+
+{% block content %}
+<h1>Book detail</h1>
+<p>{{ book_detail.id }}</p>
+  <p>{{ book_detail.title }}</p>
+  <p>{{ book_detail.author }}</p>
+  <p>{{ book_detail.publish }}</p>
+  <p>{{ book_detail.isbn_number }}</p>
+  <p>{{ book_detail.number_of_pages }}</p>
+  <p><img src="{{ book_detail.cover_link}}" style="width:100px;height:150px;"></p>
+  <p>{{ book_detail.publication_language }}</p>
+
+<p><a href="{% url "edit_book" pk=book_detail.pk %}">Edit book</a></p>
+<p><a href="{% url "delete_book" pk=book_detail.pk %}">Delete book</a></p>
+
+
+{% endblock %}
